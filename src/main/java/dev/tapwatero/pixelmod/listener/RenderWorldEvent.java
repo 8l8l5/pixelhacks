@@ -42,6 +42,10 @@ public class RenderWorldEvent {
         }
 
 
+        float x = (float) Minecraft.getInstance().player.getX();
+        float y = (float) Minecraft.getInstance().player.getY();
+        float z = (float) Minecraft.getInstance().player.getZ();
+
         IRenderTypeBuffer.Impl buffer = Minecraft.getInstance().renderBuffers().bufferSource();
         IVertexBuilder builder = buffer.getBuffer(RenderType.lines());
         MatrixStack stack = event.getMatrixStack();
@@ -64,8 +68,8 @@ public class RenderWorldEvent {
             }
 
 
-            builder.vertex(mat, (float) Minecraft.getInstance().player.getX(), (float) ((float)  Minecraft.getInstance().player.getY() + 0.1), (float) Minecraft.getInstance().player.getZ()).color(colour[0], colour[1], colour[2], colour[3]).endVertex();
-            builder.vertex(mat, (float) entity.getX(), (float) entity.getY(), (float) entity.getZ()).color(colour[0], colour[1], colour[2], colour[3]).endVertex();
+            builder.vertex(mat, x, y, z).color(colour[0], colour[1], colour[2], colour[3]).endVertex();
+            builder.vertex(mat, (float) entity.getBoundingBox().getCenter().x, (float) entity.getBoundingBox().getCenter().y, (float) entity.getBoundingBox().getCenter().x).color(colour[0], colour[1], colour[2], colour[3]).endVertex();
         }
 
 
