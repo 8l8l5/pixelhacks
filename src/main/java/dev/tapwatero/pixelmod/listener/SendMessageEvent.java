@@ -86,7 +86,7 @@ public class SendMessageEvent {
             PokemonTickEvent.targets.clear();
             PokemonTickEvent.hits.clear();
 
-        } e
+        }
 // do not edit
 //          else if (command[0].equals(":d")) {
 //            ClientPlayerEntity player = (ClientPlayerEntity) (Object) this;
