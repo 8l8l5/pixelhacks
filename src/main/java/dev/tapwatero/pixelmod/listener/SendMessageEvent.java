@@ -29,8 +29,10 @@ import static dev.tapwatero.pixelmod.listener.PokemonTickEvent.targets;
 
 public class SendMessageEvent {
 
+// working on book dupe
+//    private static final ItemStack DUPE_BOOK;
 
-    private static final ItemStack DUPE_BOOK;
+
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public void sendMessage(ClientChatEvent event) {
@@ -87,43 +89,44 @@ public class SendMessageEvent {
 
         } else if (command[0].equals(":commands")) {
             Minecraft.getInstance().player.sendMessage(new StringTextComponent(TextFormatting.GREEN + commands[0]), Util.NIL_UUID);
-
-        } else if (command[0].equals(":d")) {
-            ClientPlayerEntity player = (ClientPlayerEntity) (Object) this;
-
-            if (player.getMainHandItem().getItem() == Items.WRITABLE_BOOK)
-            {
-                IPacket<?> packet = new CEditBookPacket(DUPE_BOOK, true, player.inventory.selected);
-                player.connection.send(packet);
-            }
-
-            event.setCanceled(true);
+// do not edit
+//        } else if (command[0].equals(":d")) {
+//            ClientPlayerEntity player = (ClientPlayerEntity) (Object) this;
+//
+//            if (player.getMainHandItem().getItem() == Items.WRITABLE_BOOK)
+//            {
+//                IPacket<?> packet = new CEditBookPacket(DUPE_BOOK, true, player.inventory.selected);
+//                player.connection.send(packet);
+//            }
+//
+//            event.setCanceled(true);
+//        }
+//    }
+//
+//    static
+//    {
+//        StringBuilder stringBuilder = new StringBuilder();
+//
+//        for (int i = 0; i < 21845; i++)
+//        {
+//            stringBuilder.append((char) 2048);
+//        }
+//
+//        String str1 = stringBuilder.toString();
+//        DUPE_BOOK = new ItemStack(Items.WRITABLE_BOOK, 1);
+//        DUPE_BOOK.addTagElement("title", StringNBT.valueOf("a"));
+//        ListNBT listTag = new ListNBT();
+//        listTag.addTag(0, StringNBT.valueOf(str1));
+//
+//        for (int i = 1; i < 40; i++)
+//        {
+//            listTag.addTag(i, StringNBT.valueOf(
+//                    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
+//        }
+//
+//        DUPE_BOOK.addTagElement("pages", listTag);
+//
+//
         }
-    }
-
-    static
-    {
-        StringBuilder stringBuilder = new StringBuilder();
-
-        for (int i = 0; i < 21845; i++)
-        {
-            stringBuilder.append((char) 2048);
-        }
-
-        String str1 = stringBuilder.toString();
-        DUPE_BOOK = new ItemStack(Items.WRITABLE_BOOK, 1);
-        DUPE_BOOK.addTagElement("title", StringNBT.valueOf("a"));
-        ListNBT listTag = new ListNBT();
-        listTag.addTag(0, StringNBT.valueOf(str1));
-
-        for (int i = 1; i < 40; i++)
-        {
-            listTag.addTag(i, StringNBT.valueOf(
-                    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
-        }
-
-        DUPE_BOOK.addTagElement("pages", listTag);
-
-
     }
 }
