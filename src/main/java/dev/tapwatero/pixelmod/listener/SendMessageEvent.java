@@ -38,7 +38,6 @@ public class SendMessageEvent {
     public void sendMessage(ClientChatEvent event) {
 
         String[] command = event.getMessage().split(" ");
-        String[] commands = event.getMessage().split("add, remove, random, list, clear");
 
 
         if (command[0].startsWith("?") || command[0].startsWith(":")) {
@@ -87,10 +86,9 @@ public class SendMessageEvent {
             PokemonTickEvent.targets.clear();
             PokemonTickEvent.hits.clear();
 
-        } else if (command[0].equals(":commands")) {
-            Minecraft.getInstance().player.sendMessage(new StringTextComponent(TextFormatting.GREEN + commands[0]), Util.NIL_UUID);
+        } e
 // do not edit
-//        } else if (command[0].equals(":d")) {
+//          else if (command[0].equals(":d")) {
 //            ClientPlayerEntity player = (ClientPlayerEntity) (Object) this;
 //
 //            if (player.getMainHandItem().getItem() == Items.WRITABLE_BOOK)

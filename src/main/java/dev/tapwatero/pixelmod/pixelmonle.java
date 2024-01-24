@@ -28,6 +28,8 @@ public class pixelmonle {
     public static final String MOD_ID = "pixelmod";
     public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 
+    public Minecraft mc = Minecraft.getInstance();
+
     private static pixelmonle instance;
 
     public pixelmonle() {
