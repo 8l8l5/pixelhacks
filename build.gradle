@@ -25,7 +25,7 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 group = 'dev.tapwatero.pixelmod'
-version = '0.0.2'
+version = '0.0.3'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
